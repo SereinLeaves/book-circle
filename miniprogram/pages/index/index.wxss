@@ -1,0 +1,22 @@
+.out{
+    padding: 26rpx;
+}
+
+.blogContent{
+    padding: 20rpx;
+}
+
+.blogFoot{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.blogFoot .time{
+    font-size: 30rpx;
+     color: #888888;
+}
+
+.blogFoot .van-button{
+    margin-left: 10rpx;
+}
