@@ -7,9 +7,10 @@ Page({
      isPic:true
   },
 
-  clickAddBlog(){
+  // 点击添加博客
+clickAddBlog(){
     wx.navigateTo({
-      url:'/pages/login/login'
+      url:'../login/login'
     })
   },
 
