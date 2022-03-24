@@ -1,23 +1,66 @@
-
 <view class="out">
-<!-- 博客内容区 -->
-<view class="blogRow">
 
-<!-- 博客上方的标题,描述信息,状态,和内容 -->
-    <van-panel title="标题" desc="描述信息" status="状态">
-        <view class="blogContent">内容</view>
+    <view class="addBlog" bindtap="clickAddBlog">
+        <van-icon name="plus" />
+    </view>
 
-        <!-- 这个是底部的点赞,评论,和时间 -->
-        <view slot="footer" class="blogFoot">
-        <!-- 时间 -->
-            <view class="time">time</view>
-            <!-- 点赞和评论 -->
-            <view>
-                <van-button size="small" type="danger" icon="good-job-o" plain>点赞</van-button>
-                <van-button size="small" type="primary" icon="chat-o" plain >评论</van-button>
+
+    <!-- 博客内容区 -->
+    <view class="blogRow">
+        <van-panel use-footer-slot>
+
+            <van-cell>
+                <view slot="title" class="blogTitle">
+                    <view class="user">
+                        <!-- 1.user组件第一项元素就是用户头像 -->
+                        <view class="pic">
+                            <image mode="aspectFill"
+                                   src="cloud://env-3g1a160v0ad05b6f.656e-env-3g1a160v0ad05b6f-1310375165/my-o.png"></image>
+                        </view>
+                        <!-- 2.user组件第二项元素是用户的昵称和地址 -->
+                        <view class="text">
+                            <!-- user组件用户的昵称 -->
+                            <view class="userName">用户名</view>
+                            <!-- user组件用户的地址 -->
+                            <view class="address">北京朝阳区</view>
+                        </view>
+                    </view>
+                    <!-- 3.手机型号(和user同级别，这样flex才能和user均匀分开) -->
+                    <view class="phone">来自凤梨13pro</view>
+                </view>
+            </van-cell>
+
+
+            <!-- 内容 -->
+            <view class="blogContent">
+                <view class="text">
+                    这是文字内容这是文字内容这是文字内容这是文字内容这是文字内容这是文字内容这是文字内容这是文字内容这是文字内容这是文字内容这是文字内容这是文字内容这是文字内容这是文字内容这是文字内容这是文字内容这是文字内容这是文字内容这是文字内容这是文字内容这是文字内容这是文字内容这是文字内容这是文字内容
+                </view>
+                <view class="picGroup" wx:if="{{isPic}}">
+                    <van-grid square column-num="2" border="{{false}}">
+                        <van-grid-item use-slot wx:for="{{4}}">
+                            <image mode="aspectFill" src="cloud://env-3g1a160v0ad05b6f.656e-env-3g1a160v0ad05b6f-1310375165/girl.JPG"></image>
+                        </van-grid-item>
+                    </van-grid>
+                </view>
+
+                <view class="video" wx:else>
+                    <video src="cloud://env-3g1a160v0ad05b6f.656e-env-3g1a160v0ad05b6f-1310375165/video-01.mp4"></video>
+                </view>
+
             </view>
 
-        </view>
-    </van-panel>
-</view>
+            <!-- 这个是底部的点赞,评论,和时间 -->
+            <view slot="footer" class="blogFoot">
+                <!-- 时间 -->
+                <view class="time">time</view>
+                <!-- 点赞和评论 -->
+                <view>
+                    <van-button size="small" type="danger" icon="good-job-o" plain>点赞</van-button>
+                    <van-button size="small" type="primary" icon="chat-o" plain>评论</van-button>
+                </view>
+
+            </view>
+        </van-panel>
+    </view>
 </view>

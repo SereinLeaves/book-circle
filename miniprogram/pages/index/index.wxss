@@ -2,9 +2,100 @@
     padding: 26rpx;
 }
 
-.blogContent{
-    padding: 20rpx;
+.addBlog{
+    width: 120rpx;
+    height: 120rpx;
+    background-color: #07c160;
+    border-radius: 50%;
+    font-size: 60rpx;
+    color: #ffffff;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    right: 50rpx;
+    bottom: 100rpx;
+    z-index: 100;
+    box-shadow: 0 0 20rpx rgba(7,193,96,0.8);
 }
+
+.blogTitle{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.blogTitle .user{
+    display: flex;
+    align-items: center;
+}
+
+
+.blogTitle .pic{
+     width: 80rpx;
+    height: 80rpx;
+     border-radius: 50%;
+     overflow: hidden;
+}
+
+.blogTitle .pic image {
+    width: 100%;
+    height: 100%;
+}
+
+.blogTitle .text{
+    padding-left: 15rpx;
+    line-height: 1.4em;
+}
+
+.blogTitle .userName{
+    font-size: 40rpx;
+    color: #111111;
+}
+
+.blogTitle .address{
+    font-size: 26rpx;
+    color: #999999;
+}
+
+.blogTitle .phone{
+    font-size: 30rpx;
+    color: #666666;
+}
+
+.blogContent{
+    padding: 30rpx;
+}
+
+.blogContent .text{
+    line-height: 1.6em;
+    color: #111111;
+    padding-bottom: 20rpx;
+    text-align: justify;
+}
+
+.blogContent .picGroup{
+    width: 100%;
+    min-height: 100rpx;
+}
+
+.blogContent .picGroup image{
+    width: 100%;
+    height: 100%;
+}
+
+
+.blogContent .video{
+    width: 100%;
+    height: 400rpx;
+}
+
+.blogContent .video video{
+    width: 100%;
+    height: 100%;
+}
+
 
 .blogFoot{
     display: flex;
