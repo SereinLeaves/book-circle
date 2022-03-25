@@ -1,2 +1,33 @@
-<!--pages/addBlog/addBlog.wxml-->
-<text>pages/addBlog/addBlog.wxml</text>
+<view class="out">
+    <form bindsubmit="onsubmit">
+        <!--标题-->
+        <view class="row">
+            <input type="text" class="title" name="title" placeholder="请输入标题"></input>
+        </view>
+        <!--内容输入框-->
+        <view class="row">
+            <textarea class="content" name="content" placeholder="请输入发表的内容"></textarea>
+        </view>
+
+        <!--地址-->
+        <view class="row">
+            <view class="address" bindtap="clickAddress">
+                <!--单标签-->
+                <van-icon name="location-o"/>
+                <view class="text">
+                    <block wx:if="{{false}}">
+                        北京朝阳区
+                    </block>
+                    <block wx:else>
+                        点击获取当前地址
+                    </block>
+                </view>
+            </view>
+        </view>
+
+        <!--上传文件-->
+        <view class="row">
+            <van-uploader multiple file-list="{{fileList}}" bind:after-read="readPic" bind:delete="delPic"/>
+        </view>
+    </form>
+</view>

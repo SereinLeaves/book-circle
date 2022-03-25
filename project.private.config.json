@@ -68,18 +68,18 @@
                     "scene": null
                 },
                 {
-                    "name": "首页",
-                    "pathName": "pages/index/index",
+                    "name": "addBlog",
+                    "pathName": "pages/addBlog/addBlog",
                     "query": "",
-                    "launchMode": "default",
-                    "scene": null
+                    "scene": null,
+                    "launchMode": "default"
                 },
                 {
                     "name": "测试",
                     "pathName": "pages/textpage/textpage",
                     "query": "",
-                    "scene": null,
-                    "launchMode": "default"
+                    "launchMode": "default",
+                    "scene": null
                 }
             ]
         }

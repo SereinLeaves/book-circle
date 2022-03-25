@@ -1,1 +1,52 @@
-/* pages/addBlog/addBlog.wxss */
+.out{
+    padding:30rpx;
+}
+.out .row{
+    margin-bottom:20rpx;
+}
+.out input,.out textarea{
+    background:#fff;
+    width:100%;
+    box-sizing: border-box;
+    height: 90rpx;
+    padding:0 20rpx;
+    color:#333;
+}
+.out textarea{
+    height: 300rpx;
+    padding:20rpx;
+}
+
+.address{
+    display: flex;
+    align-items: center;
+    height: 90rpx;
+    background:#fff;
+    padding-left:20rpx;
+}
+.address van-icon{
+    font-size:40rpx;
+}
+.address .text{
+    color:#666;
+    padding-left: 20rpx;
+}
+.btnGroup{
+    position: relative;
+}
+.btnGroup .van-button{
+    width:100%;
+}
+.btnGroup .wxBtn{width:100%; height: 100%;
+    position: absolute; top:0; left: 0;
+    opacity: 0;
+}
+
+.van-uploader .van-uploader__upload{
+    background:#fff;
+}
+
+
+
+
+
