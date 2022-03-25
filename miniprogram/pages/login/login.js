@@ -1,4 +1,6 @@
 // pages/login/login.js
+var app = getApp();
+
 Page({
 
     /**
@@ -8,6 +10,27 @@ Page({
 
     },
 
+    // 获取用户授权信息
+    myUserInfo(res){
+    console.log(res);
+    if(res.detail.userInfo){
+      app.globalData.userInfo=res.detail.userInfo
+      wx.showToast({
+        title: '授权成功'
+      })
+      setTimeout(()=>{
+        wx.navigateTo({
+          url: '/pages/addBlog/addBlog'
+        })
+      },1500)
+    }    
+  },
+
+
+    // 返回上一页
+    goBack() {
+        wx.navigateBack()
+    },
     /**
      * 生命周期函数--监听页面加载
      */

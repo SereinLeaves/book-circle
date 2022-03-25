@@ -14,6 +14,27 @@ App({
       });
     }
 
-    this.globalData = {};
+    // 获取用户数据
+    /*
+    *     https://developers.weixin.qq.com/miniprogram/dev/api/open-api/setting/AuthSetting.html/
+    * AuthSetting 用户授权设置信息，详情参考权限
+    * scope.userInfo  是否授权用户信息，对应接口 wx.getUserInfo
+    *
+    * */
+   wx.getSetting({
+    success:res=>{
+      if(res.authSetting["scope.userInfo"]){
+        wx.getUserInfo({
+          lang: "zh_CN",
+          success:v=>{             
+            this.globalData.userInfo=v.userInfo;               
+          }
+        })
+      }
+    }
+  })
+
+
+    this.globalData = {}
   }
 });
