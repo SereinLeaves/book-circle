@@ -41,7 +41,7 @@
     },
     "appid": "wx8553990117d10669",
     "projectname": "book-circle",
-    "libVersion": "2.23.1",
+    "libVersion": "2.4.4",
     "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
     "condition": {
         "search": {

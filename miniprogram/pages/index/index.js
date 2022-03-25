@@ -2,7 +2,6 @@ const app = getApp();
 
 Page({
 
- 
 
     /**
      * 页面的初始数据
@@ -10,24 +9,26 @@ Page({
 
 
     data: {
-        isPic: true
+        isPic: true,
+        userInfo: {},
+        hasUserInfo: false,
+        canIUseGetUserProfile: false
     },
 
-  clickAddBlog(){
-    if(app.globalData.userInfo){
-      wx.navigateTo({
-          //有授权就跳转到添加博客页面
-        url: '/pages/addBlog/addBlog',
-      })
-      console.log(app.globalData.userInfo);
-      return;
-    }  
-    wx.navigateTo({
-        //没有授权就跳转到登陆页面
-      // url: '/pages/login/login'
-      url:'/pages/login/login'
-    })
-  },
+    clickAddBlog() {
+        if (false) {
+            wx.navigateTo({
+                //有授权就跳转到添加博客页面
+                url: '/pages/addBlog/addBlog',
+            })
+            console.log(userInfo);
+            return;
+        } else wx.navigateTo({
+            //没有授权就跳转到登陆页面
+            // url: '/pages/login/login'
+            url: '../login/login'
+        })
+    },
 
     // 点击添加博客
 // clickAddBlog() {
@@ -46,7 +47,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        this.getBlogData();
+        
     },
 
     /**
