@@ -15,8 +15,8 @@
                 <!--单标签-->
                 <van-icon name="location-o"/>
                 <view class="text">
-                    <block wx:if="{{false}}">
-                        北京朝阳区
+                    <block wx:if="{{blogObj.addName}}">
+                        {{blogObj.addName}}
                     </block>
                     <block wx:else>
                         点击获取当前地址
@@ -29,5 +29,15 @@
         <view class="row">
             <van-uploader multiple file-list="{{fileList}}" bind:after-read="readPic" bind:delete="delPic"/>
         </view>
+
+        <view class="row btnGroup">
+            <van-button form-type="submit" type="primary" disabled="{{false}}" >
+                确认发布
+            </van-button>
+            <button form-type="submit" class="wxBtn" disabled="{{false}}"></button>
+
+        </view>
+
+
     </form>
 </view>

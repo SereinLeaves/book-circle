@@ -5,6 +5,7 @@
     "pages/addBlog/addBlog",
     "pages/textpage/textpage"
   ],
+
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
@@ -22,5 +23,10 @@
     "van-grid-item": "@vant/weapp/grid-item/index",
     "van-notice-bar": "@vant/weapp/notice-bar/index",
     "van-uploader": "@vant/weapp/uploader/index"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
   }
 }
