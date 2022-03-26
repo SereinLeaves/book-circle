@@ -23,18 +23,31 @@ Page({
 
     //提交表单
     onsubmit(e) {
+        wx.showLoading({
+          title: '数据加载中...',
+          mask:true
+        })
         this.setData({
             "blogObj.title": e.detail.value.title,
             "blogObj.content": e.detail.value.content,
             "blogObj.phone": wx.getSystemInfoSync().brand
             //   "blogObj.userInfo":app.globalData.userInfo
         })
+
+        if(!this.data.fileList.length){
+            this.pushDatabase();
+            return; 
+
+        }
+
+
         // this.pushDatabase();
         this.data.fileList.forEach(item => {
             console.log(item.url);
             this.uploading(item.url)
         })
     },
+
     //上传图片
     uploading(temp) {
         var filename = "blogImg/" + common.ranFile() + common.houZhui(temp)
@@ -63,7 +76,16 @@ Page({
                 blogObj: this.data.blogObj
             }
         }).then(res => {
-            console.log(res)
+            wx.hideLoading();
+            wx.showToast({
+              title: '发布成功!',
+              mask:true
+            })
+            setTimeout(() => {
+                wx.redirectTo({
+                    url: '../index/index',
+                  })  
+            }, 1500);
         })
     },
 
