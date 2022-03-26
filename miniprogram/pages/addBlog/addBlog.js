@@ -21,12 +21,8 @@ Page({
         })
     },
 
-    //点击提交
+    //提交表单
     onsubmit(e) {
-        wx.showLoading({
-            title: '数据加载中...',
-            mask: true
-        })
         this.setData({
             "blogObj.title": e.detail.value.title,
             "blogObj.content": e.detail.value.content,
@@ -39,18 +35,26 @@ Page({
             this.uploading(item.url)
         })
     },
-
+    //上传图片
     uploading(temp) {
         var filename = "blogImg/" + common.ranFile() + common.houZhui(temp)
-            wx.cloud.uploadFile({
+        wx.cloud.uploadFile({
             cloudPath: filename,
-            filePath: temp,
+            filePath: temp
         }).then(res => {
-            console.log(res);
+            // console.log(res.fileID)
+            fileIDArr.push(res.fileID)
+            console.log(fileIDArr.length)
+            if(fileIDArr.length==this.data.fileList.length){
+                this.setData({
+                    "blogObj.picArr":fileIDArr
+                })
+                this.pushDatabase();
+            }
+
         })
     },
-
-
+    
     pushDatabase() {
         //添加到数据库
         wx.cloud.callFunction({
@@ -62,27 +66,6 @@ Page({
             console.log(res)
         })
     },
-
-
-    //点击提交
-    // uploadImg(temp){
-    //     var filename="blogImg/"+common.ranFile()+common.houZhui(temp)
-    //     wx.cloud.uploadFile({
-    //       cloudPath:filename,
-    //       filePath:temp
-    //     }).then(res=>{
-
-    //       fileIDArr.push(res.fileID);
-    //       console.log(fileIDArr.length);
-    //       if(fileIDArr.length==this.data.fileList.length){
-    //         this.setData({
-    //           "blogObj.picarr":fileIDArr
-    //         })
-    //         this.pushDatabase();
-    //       }    
-    //     })
-    //   },
-
 
 //添加图片
     clickAddress() {

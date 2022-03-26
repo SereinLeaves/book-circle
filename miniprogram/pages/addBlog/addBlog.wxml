@@ -31,11 +31,10 @@
         </view>
 
         <view class="row btnGroup">
-            <van-button form-type="submit" type="primary" disabled="{{false}}" >
-                确认发布
-            </van-button>
-            <button form-type="submit" class="wxBtn" disabled="{{false}}"></button>
-
+            <!-- <van-button type="primary" form-type="submit"  
+      disabled="{{false}}">确认发布</van-button> -->
+      <button  form-type="submit" type="primary" class="wxBtn" 
+      disabled="{{false}}">确认发布</button>
         </view>
 
 
