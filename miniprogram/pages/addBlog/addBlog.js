@@ -26,10 +26,11 @@ Page({
       title: '数据加载中...',
       mask:true
     })
-    this.setData({      
+    this.setData({
+      "blogObj.title":e.detail.value.title,
       "blogObj.content":e.detail.value.content,
-      "blogObj.phone":wx.getSystemInfoSync().brand,
-      "blogObj.userInfo":app.globalData.userInfo
+      "blogObj.phone":wx.getSystemInfoSync().brand
+    //   "blogObj.userInfo":app.globalData.userInfo
     })
     this.pushDatabase();   
   },
