@@ -9,7 +9,25 @@ Page({
 
 
     data: {
-        isPic: true
+        isPic: true,
+        blogList:[]
+    },
+
+    // 获取博客数据
+    getBlogData(size){
+      wx.cloud.callFunction({
+        name:"blog_get_blog_all",
+        data:{
+          size:size
+        }
+      }).then(res=>{
+        var oldList = this.data.blogList;
+        var nsList = oldList.concat(res.result.data)
+        this.setData({
+          blogList:nsList
+        })
+          wx.stopPullDownRefresh();
+      })
     },
 
     //点击添加博客
@@ -29,7 +47,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function () {
-        
+        this.getBlogData();
     },
 
     /**
@@ -67,13 +85,19 @@ Page({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh: function () {
-
+        this.setData({
+            blogList:[]
+        })
+        this.getBlogData(0);
     },
 
     /**
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function () {
+        var size = this.data.blogList.length;
+        this.getBlogData(size);
+      
 
     },
 

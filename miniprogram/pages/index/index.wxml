@@ -7,7 +7,7 @@
 
 
     <!-- 博客内容区 -->
-    <view class="blogRow">
+    <view class="blogRow" wx:for="{{10}}" wx:key="item._id">
         <van-panel use-footer-slot>
 
             <van-cell>
@@ -15,8 +15,7 @@
                     <view class="user">
                         <!-- 1.user组件第一项元素就是用户头像 -->
                         <view class="pic">
-                            <image mode="aspectFill"
-                                   src="cloud://env-3g1a160v0ad05b6f.656e-env-3g1a160v0ad05b6f-1310375165/my-o.png"></image>
+                            <image mode="{{pic}}"></image>
                         </view>
                         <!-- 2.user组件第二项元素是用户的昵称和地址 -->
                         <view class="text">
@@ -27,26 +26,24 @@
                         </view>
                     </view>
                     <!-- 3.手机型号(和user同级别，这样flex才能和user均匀分开) -->
-                    <view class="phone">来自凤梨13pro</view>
+                    <view class="phone">来自:{{item.phone}}</view>
                 </view>
             </van-cell>
 
 
             <!-- 内容 -->
             <view class="blogContent">
-                <view class="text">
-                    这是文字内容这是文字内容这是文字内容这是文字内容这是文字内容这是文字内容这是文字内容这是文字内容这是文字内容这是文字内容这是文字内容这是文字内容这是文字内容这是文字内容这是文字内容这是文字内容这是文字内容这是文字内容这是文字内容这是文字内容这是文字内容这是文字内容这是文字内容这是文字内容
-                </view>
-                <view class="picGroup" wx:if="{{isPic}}">
+                <view class="text">{{item.content}}</view>
+                <view class="picGroup" wx:if="{{item.picarr}}">
                     <van-grid square column-num="2" border="{{false}}">
                         <van-grid-item use-slot wx:for="{{4}}">
-                            <image mode="aspectFill" src="cloud://env-3g1a160v0ad05b6f.656e-env-3g1a160v0ad05b6f-1310375165/girl.JPG"></image>
+                            <image mode="aspectFill" src=""></image>
                         </van-grid-item>
                     </van-grid>
                 </view>
 
-                <view class="video" wx:else>
-                    <video src="cloud://env-3g1a160v0ad05b6f.656e-env-3g1a160v0ad05b6f-1310375165/video-01.mp4"></video>
+                <view class="video" wx:if="">
+                    <video src=""></video>
                 </view>
 
             </view>

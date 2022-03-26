@@ -2,6 +2,8 @@
     padding: 26rpx;
 }
 
+
+
 .addBlog{
     width: 120rpx;
     height: 120rpx;
@@ -19,6 +21,11 @@
     z-index: 100;
     box-shadow: 0 0 20rpx rgba(7,193,96,0.8);
 }
+
+.blogRow{
+    margin-bottom: 30rpx;
+}
+
 
 .blogTitle{
     display: flex;
