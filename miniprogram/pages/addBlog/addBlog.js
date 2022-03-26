@@ -1,7 +1,8 @@
 // pages/addBlog/addBlog.js
-// import common from "../../common/common.js"
-var fileIDArr=[];
-const app=getApp();
+import common from "../../common/common.js"
+
+var fileIDArr = [];
+const app = getApp();
 Page({
 
     /**
@@ -19,33 +20,48 @@ Page({
             "blogObj.content": val.detail.value
         })
     },
-   
-      //点击提交
-      onsubmit(e){
-    wx.showLoading({
-      title: '数据加载中...',
-      mask:true
-    })
-    this.setData({
-      "blogObj.title":e.detail.value.title,
-      "blogObj.content":e.detail.value.content,
-      "blogObj.phone":wx.getSystemInfoSync().brand
-    //   "blogObj.userInfo":app.globalData.userInfo
-    })
-    this.pushDatabase();   
-  },
 
-  pushDatabase(){
-    //添加到数据库
-    wx.cloud.callFunction({
-      name:"blog_add_one",
-      data:{
-        blogObj:this.data.blogObj
-      }
-    }).then(res=>{
-      console.log(res)
-    })
-  },
+    //点击提交
+    onsubmit(e) {
+        wx.showLoading({
+            title: '数据加载中...',
+            mask: true
+        })
+        this.setData({
+            "blogObj.title": e.detail.value.title,
+            "blogObj.content": e.detail.value.content,
+            "blogObj.phone": wx.getSystemInfoSync().brand
+            //   "blogObj.userInfo":app.globalData.userInfo
+        })
+        // this.pushDatabase();
+        this.data.fileList.forEach(item => {
+            console.log(item.url);
+            this.uploading(item.url)
+        })
+    },
+
+    uploading(temp) {
+        var filename = "blogImg/" + common.ranFile() + common.houZhui(temp)
+            wx.cloud.uploadFile({
+            cloudPath: filename,
+            filePath: temp,
+        }).then(res => {
+            console.log(res);
+        })
+    },
+
+
+    pushDatabase() {
+        //添加到数据库
+        wx.cloud.callFunction({
+            name: "blog_add_one",
+            data: {
+                blogObj: this.data.blogObj
+            }
+        }).then(res => {
+            console.log(res)
+        })
+    },
 
 
     //点击提交
@@ -55,7 +71,7 @@ Page({
     //       cloudPath:filename,
     //       filePath:temp
     //     }).then(res=>{
-          
+
     //       fileIDArr.push(res.fileID);
     //       console.log(fileIDArr.length);
     //       if(fileIDArr.length==this.data.fileList.length){
@@ -66,7 +82,7 @@ Page({
     //       }    
     //     })
     //   },
-      
+
 
 //添加图片
     clickAddress() {

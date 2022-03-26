@@ -14,7 +14,10 @@ exports.main = async (event, context) => {
   blogObj.posttime=Date.now();
   
 
-  return await db.collection("blog_list").add({
+//   return await db.collection("blog_list").add({
+//     data:blogObj
+//   })
+  return db.collection("blog_list").add({
     data:blogObj
   })
   
