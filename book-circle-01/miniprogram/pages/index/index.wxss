@@ -3,6 +3,12 @@
     margin-bottom: 30rpx;
 }
 
+.addBlog{
+    position: fixed;
+    right: 50rpx;
+    bottom: 100rpx;
+    z-index: 100;
+}
 
 
 .blogTop .van-cell{

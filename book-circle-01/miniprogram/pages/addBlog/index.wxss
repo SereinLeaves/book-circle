@@ -1,1 +1,4 @@
 /* pages/addBlog/index.wxss */
+.van-button{
+    border-radius: 50em;
+}
