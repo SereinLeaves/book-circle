@@ -1,4 +1,9 @@
-/* pages/addBlog/index.wxss */
-.van-button{
-    border-radius: 50em;
+
+.van-cell-group{
+    margin-top: 50rpx;
+}
+
+.van-uploader{
+    margin-top: 50rpx;
+    margin-bottom: 10rpx;
 }

@@ -5,7 +5,18 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+        fileList: [
+            {
+              url: 'https://img.yzcdn.cn/vant/leaf.jpg',
+              status: 'uploading',
+              message: '上传中',
+            },
+            {
+              url: 'https://img.yzcdn.cn/vant/tree.jpg',
+              status: 'failed',
+              message: '上传失败',
+            },
+          ],
     },
 
 

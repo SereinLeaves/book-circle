@@ -1,1 +1,16 @@
-<van-button icon="plus" type="primary"/>
+<van-cell-group class="van-cell-group">
+  <van-field
+    value="{{ message }}"
+    type="textarea"
+    placeholder="请输入内容"
+    autosize
+    border="{{ false }}"
+    maxlength="200"
+    show-word-limit
+  />
+</van-cell-group>
+
+<van-uploader class="van-uploader" file-list="{{ fileList }}" deletable="{{ true }}" max-count="9" />
+
+
+<van-button type="primary" block>提交</van-button>
