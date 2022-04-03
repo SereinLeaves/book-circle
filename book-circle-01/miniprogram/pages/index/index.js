@@ -1,10 +1,16 @@
+const app = getApp()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    
+    active: 0,
+  },
+
+  onChange(event) {
+    this.setData({ active: event.detail });
   },
 
   /**
@@ -25,7 +31,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+
   },
 
   /**

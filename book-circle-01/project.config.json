@@ -33,10 +33,10 @@
         "userConfirmedBundleSwitch": false,
         "packNpmManually": true,
         "packNpmRelationList": [
-          {
-            "packageJsonPath": "./package.json",
-            "miniprogramNpmDistDir": "./"
-          }
+            {
+                "packageJsonPath": "./package.json",
+                "miniprogramNpmDistDir": "./"
+            }
         ],
         "minifyWXSS": true,
         "disableUseStrict": false,
@@ -46,7 +46,7 @@
     },
     "appid": "wx8553990117d10669",
     "projectname": "book-circle-01",
-    "libVersion": "2.14.1",
+    "libVersion": "2.23.2",
     "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
     "condition": {
         "search": {

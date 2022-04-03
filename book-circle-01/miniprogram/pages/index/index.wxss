@@ -1,0 +1,36 @@
+
+.out .van-panel{
+    margin-bottom: 30rpx;
+}
+
+
+
+.blogTop .van-cell{
+    --cell-icon-size:90rpx
+}
+
+.blogContent .text{
+    padding-top:15rpx;
+    padding-left:30rpx;
+    font-size: 35rpx;
+    line-height: 1.4em;
+}
+
+
+.blogContent image{
+    width:230rpx;
+    height:230rpx;
+}
+
+.blogBottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+ .blogBottom .time{
+    font-size: 30rpx;
+    color: #666666;
+ }
+ .blogBottom .van-button{
+     margin-left: 10rpx;
+ }
