@@ -1,0 +1,24 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/addBlog/index"
+  ],
+  "window": {
+    "backgroundColor": "#07c160",
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "书友圈",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-panel": "@vant/weapp/panel/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-grid": "@vant/weapp/grid/index",
+    "van-grid-item": "@vant/weapp/grid-item/index",
+    "van-notice-bar": "@vant/weapp/notice-bar/index",
+    "van-uploader": "@vant/weapp/uploader/index"
+  }
+}
