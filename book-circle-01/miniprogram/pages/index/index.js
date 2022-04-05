@@ -6,19 +6,38 @@ Page({
    * 页面的初始数据
    */
   data: {
-    active: 0,
+    userInfo: {}
   },
 
-  onChange(event) {
-    this.setData({ active: event.detail });
+  //跳转测试
+  jumpPages(){
+    wx.navigateTo({
+      url:'../addBlog/index'
+    })
   },
+
+ 
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    if (app.hasUserInfo()) {
+      this.setData({
+        userInfo:app.globalData.userInfo
+      })
+      
+    }
   },
+
+ //授权测试
+ async goLogin(){
+  await app.getUserInfo()
+  this.setData({
+    userInfo:app.globalData.userInfo
+  })
+},
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -1,5 +1,8 @@
 // app.js
+var that = this;
+
 App({
+    
   onLaunch: function () {
     if (!wx.cloud) {
       console.error('请使用 2.2.3 或以上的基础库以使用云能力');
@@ -15,5 +18,35 @@ App({
     }
 
     this.globalData = {};
-  }
+  },
+
+  //判断是否有用户信息
+  hasUserInfo(){
+    let userInfo = wx.getStorageSync('userInfo')
+    if (this.globalData.userInfo || userInfo) {
+      this.globalData.userInfo = userInfo
+      return true
+    }else
+    return false
+  },
+
+
+  //获取用户信息
+  async getUserInfo(){
+
+    let p = await new Promise((resolve,reject)=>{
+      
+     wx.getUserProfile({
+        desc: '授权需要',
+        success:res=>{
+          resolve(res)          
+        }
+      })
+    })
+
+    this.globalData.userInfo = p.userInfo
+    wx.setStorageSync('userInfo', p.userInfo)
+
+  },
+  
 });

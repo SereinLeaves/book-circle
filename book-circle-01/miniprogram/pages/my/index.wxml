@@ -1,1 +1,2 @@
 <view>2331234</view>
+<button bindtap="aLogin">登陆</button>

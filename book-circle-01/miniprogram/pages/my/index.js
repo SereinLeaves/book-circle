@@ -6,9 +6,30 @@ Page({
      * 页面的初始数据
      */
     data: {
-        
+        userInfo:{},
+        hasUserInfo:false
     },
     
+    aLogin(){
+        wx.getUserProfile({
+            desc: '用户授权',
+            success: (result) => {
+              this.setData({
+                userInfo: result.userInfo,
+                hasUserInfo: true
+              })
+            console.log("授权成功");
+        
+            },
+            fail: (res) => {
+            console.log("授权失败"+res);
+            },
+            complete: (res) => {
+            console.log("接口调用完毕");
+            },
+          })
+        
+    },
     
 
     /**

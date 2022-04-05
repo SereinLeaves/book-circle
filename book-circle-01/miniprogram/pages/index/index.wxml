@@ -1,6 +1,6 @@
 <view class="out">
-  <!-- clickAddBlog:点击授权,并且跳转到添加博客页面,固定在页面上 -->
-  <view class="addBlog" bindtap="clickAddBlog">
+  <!-- AddBlog:点击授权,并且跳转到添加博客页面,固定在页面上 -->
+  <view class="addBlog" bindtap="goLogin">
     <van-button icon="plus" type="primary" size="normal" round/>
   </view>
 
@@ -11,7 +11,10 @@
     <view class="blogTop">
 
       <!-- <van-image width="100rpx" height="100rpx" src="/miniprogram/images/icon_girl.png" /> -->
-      <van-cell icon="cloud://env-3g1a160v0ad05b6f.656e-env-3g1a160v0ad05b6f-1310375165/icons/icon_girl.png" title="用户名" value="手机型号" label="地址" class="van_cell" border="{{ false }}" center />
+ 
+        <van-cell icon="{{userInfo.avatarUrl}}" title="{{userInfo.nickName}}" value="时间" class="van_cell" border="{{ false }}" center />
+
+
 
     </view>
 
@@ -30,13 +33,11 @@
     <!-- 博客底部:发布时间,点赞,评论 -->
     <view class="blogBottom" slot="footer">
       <!-- 时间 -->
-      <view class="time" left>原来是昨天</view>
+      <!-- <view class="time" left>原来是昨天</view> -->
       <!-- 点赞和评论 -->
-      <view>
-        <van-button size="small" type="danger" icon="good-job-o" plain>点赞</van-button>
+      <van-button size="small" type="danger" icon="good-job-o" plain>点赞</van-button>
         <van-button size="small" type="primary" icon="chat-o" plain>评论</van-button>
-      </view>
-
+        <van-button size="small" type="info" icon="share-o" plain>分享</van-button>
 
     </view>
 
