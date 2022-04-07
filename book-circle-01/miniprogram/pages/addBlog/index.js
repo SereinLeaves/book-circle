@@ -1,22 +1,14 @@
 // pages/addBlog/index.js
+
+
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        fileList: [
-            {
-              url: 'https://img.yzcdn.cn/vant/leaf.jpg',
-              status: 'uploading',
-              message: '上传中',
-            },
-            {
-              url: 'https://img.yzcdn.cn/vant/tree.jpg',
-              status: 'failed',
-              message: '上传失败',
-            },
-          ],
+      fileList:[],
+      blogObj:{}
     },
 
 
@@ -74,5 +66,46 @@ Page({
      */
     onShareAppMessage: function () {
 
+    },
+
+
+    //上传数据到数据库
+    onSubmit(e){
+      this.setData({
+        "blogObj.content":e.detail.value.content
+      })
+
+      wx.cloud.callFunction({
+        name:"addBlog",
+        data:{
+          blogObj:this.data.blogObj
+        }
+      }).then(res=>{
+        console.log(res)
+      })
+    },
+
+    //读取图像
+    readPic(e){
+      // console.log(e.detail.file);
+      this.setData({
+        fileList:e.detail.file
+      })
+    },
+
+    //删除预览图
+    delPic(e){
+      var index = e.detail.index;
+      var _fileList = this.data.fileList;
+      _fileList.splice(index,1);
+      this.setData({
+        fileList:_fileList
+      })
     }
+
+
+
+
+
+
 })

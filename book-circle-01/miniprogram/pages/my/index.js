@@ -6,37 +6,26 @@ Page({
      * 页面的初始数据
      */
     data: {
-        userInfo:{},
-        hasUserInfo:false
+        userInfo:{}
     },
+
     
-    aLogin(){
-        wx.getUserProfile({
-            desc: '用户授权',
-            success: (result) => {
-              this.setData({
-                userInfo: result.userInfo,
-                hasUserInfo: true
-              })
-            console.log("授权成功");
-        
-            },
-            fail: (res) => {
-            console.log("授权失败"+res);
-            },
-            complete: (res) => {
-            console.log("接口调用完毕");
-            },
-          })
-        
+    async goLogin(){
+      await app.getUserInfo()
+      this.setData({
+        userInfo:app.globalData.userInfo
+      })
     },
-    
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+      if (app.hasUserInfo()) {
+        this.setData({
+          userInfo:app.globalData.userInfo
+        })
+      }  
     },
 
     /**

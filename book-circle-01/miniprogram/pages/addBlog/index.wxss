@@ -1,9 +1,20 @@
-
-.van-cell-group{
-    margin-top: 50rpx;
+.out {
+    padding: 30rpx;
 }
 
-.van-uploader{
+.van-uploader {
     margin-top: 50rpx;
     margin-bottom: 10rpx;
+}
+
+.out .row {
+    margin-bottom: 20rpx;
+}
+
+.out input,
+.out textarea {
+    background: #fff;
+    width: 100%;
+    height: 300rpx;
+    color: #333;
 }

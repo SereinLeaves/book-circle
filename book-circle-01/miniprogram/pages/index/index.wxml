@@ -1,6 +1,6 @@
 <view class="out">
   <!-- AddBlog:点击授权,并且跳转到添加博客页面,固定在页面上 -->
-  <view class="addBlog" bindtap="goLogin">
+  <view class="addBlog" bindtap="addBlog">
     <van-button icon="plus" type="primary" size="normal" round/>
   </view>
 

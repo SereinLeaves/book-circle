@@ -8,14 +8,6 @@ Page({
   data: {
     userInfo: {}
   },
-
-  //跳转测试
-  jumpPages(){
-    wx.navigateTo({
-      url:'../addBlog/index'
-    })
-  },
-
  
 
   /**
@@ -30,13 +22,7 @@ Page({
     }
   },
 
- //授权测试
- async goLogin(){
-  await app.getUserInfo()
-  this.setData({
-    userInfo:app.globalData.userInfo
-  })
-},
+
 
 
   /**
@@ -86,5 +72,31 @@ Page({
    */
   onShareAppMessage: function () {
     
-  }
+  },
+
+
+  
+     //授权
+ async goLogin(){
+  await app.getUserInfo()
+  this.setData({
+    userInfo:app.globalData.userInfo
+  })
+},
+
+    //跳转
+    jumpPages(){
+      wx.navigateTo({
+        url:'../addBlog/index'
+      })
+    },
+
+    async addBlog(){
+      if (app.hasUserInfo()) {
+        this.jumpPages()
+      }else{
+        await this.goLogin()
+        this.jumpPages()
+      }      
+    }
 })

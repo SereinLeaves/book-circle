@@ -1,2 +1,8 @@
-<view>2331234</view>
-<button bindtap="aLogin">登陆</button>
+<view class="userOut" wx:if="{{!userInfo.nickName}}" bindtap="goLogin">
+    <van-cell icon="../../images/my_o.png" title="请登录" center />
+    <view>{{userInfo.nickName}}</view>
+</view>
+
+<view class="userOut" wx:else>
+    <van-cell icon="{{userInfo.avatarUrl}}" title="{{userInfo.nickName}}" center />
+</view>
