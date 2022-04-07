@@ -5,13 +5,10 @@
   </view>
 
 <!-- 内容面板 -->
-  <van-panel wx:for="{{10}}">
+  <van-panel wx:for="{{blogList}}" wx:key="item._id">
 
     <!-- 博客顶部:用户头像,昵称,地址,手机型号 -->
     <view class="blogTop">
-
-      <!-- <van-image width="100rpx" height="100rpx" src="/miniprogram/images/icon_girl.png" /> -->
- 
         <van-cell icon="{{userInfo.avatarUrl}}" title="{{userInfo.nickName}}" value="时间" class="van_cell" border="{{ false }}" center />
 
 
@@ -20,11 +17,11 @@
 
     <!-- 博客内容:文字和图片 -->
     <view class="blogContent">
-      <view class="text">内容</view>
+      <view class="text">{{item.content}}</view>
       <view class="picture">
         <van-grid column-num="3" border="{{ false }}">
-          <van-grid-item use-slot wx:for="{{ 3 }}" wx:for-item="index">
-            <image style="width: 100%; height: 90px;" src="https://img.yzcdn.cn/vant/apple-{{ index + 1 }}.jpg" />
+          <van-grid-item use-slot wx:for="{{item.picarr}}" wx:for-item="picitem" wx:for-index="picindex">
+            <image style="width: 100%; height: 90px;" src="{{picitem}}" />
           </van-grid-item>
         </van-grid>
       </view>
