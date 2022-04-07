@@ -4,7 +4,7 @@
     <view class="row">
       <textarea bindinput="" type="textarea" name="content" class="content" placeholder="请输入发表内容" ></textarea>
     </view>
-    <van-uploader class="van-uploader" file-list="{{ fileList }}" bind:after-read="readPic" bind:delete="delPic" multiple />
+    <van-uploader class="van-uploader" file-list="{{ fileList }}" bind:after-read="readPic" bind:delete="delPic" max-count="9" multiple />
     <van-button type="primary" form-type="submit" block>提交</van-button>
   </form>
 </view>
