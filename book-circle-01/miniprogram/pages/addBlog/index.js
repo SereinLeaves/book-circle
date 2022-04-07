@@ -9,6 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    value:"",
     fileList: [],
     blogObj: {}
   },
@@ -81,7 +82,8 @@ Page({
 
 
     this.setData({
-      "blogObj.content": e.detail.value.content
+      "blogObj.content": e.detail.value.content,
+      "blogObj.userInfo":app.globalData.userInfo
     })
 
     //没有图片就直接上传
@@ -94,12 +96,6 @@ Page({
     this.data.fileList.forEach(item => {
       this.uploadImg(item.url)
     })
-
-
-
-
-
-
   },
 
   //读取图像
@@ -119,6 +115,7 @@ Page({
       fileList: _fileList
     })
   },
+
   //上传图像
   uploadImg(temp) {
     var filename = "blogImg/" + common.ranFile() + common.houZhui(temp)
@@ -161,4 +158,14 @@ Page({
       })
     }, 1500)
   },
+
+  inputContent(val){
+    this.setData({
+      "blogObj.content":val.detail.value
+    })
+  },
+
+
+
+
 })

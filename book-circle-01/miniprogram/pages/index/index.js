@@ -59,14 +59,18 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.setData({
+      blogList:[]
+    })
+    this.getBlogData(0)
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    var size = this.data.blogList.length;
+    this.getBlogData(size);
   },
 
   /**
@@ -110,13 +114,24 @@ Page({
         size:size
       }
     }).then(res => {
-      // console.log(res);
+      var oldList = this.data.blogList;
+      var newList = oldList.concat(res.result.data)
       this.setData({
-        blogList:res.result.data
+        blogList:newList 
       })
     })
+    wx.stopPullDownRefresh()
   },
 
+  //点击查看大图
+  clickImg(e){
+    var {picarr,picindex} = e.currentTarget.dataset
+    wx.previewImage({
+      urls: picarr,
+      current:picarr[picindex]
+    })
+
+  },
 
 
 })

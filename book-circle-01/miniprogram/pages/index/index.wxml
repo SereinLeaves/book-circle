@@ -1,3 +1,5 @@
+<wxs module="time" src="../time.wxs"></wxs>
+
 <view class="out">
   <!-- AddBlog:点击授权,并且跳转到添加博客页面,固定在页面上 -->
   <view class="addBlog" bindtap="addBlog">
@@ -9,10 +11,7 @@
 
     <!-- 博客顶部:用户头像,昵称,地址,手机型号 -->
     <view class="blogTop">
-        <van-cell icon="{{userInfo.avatarUrl}}" title="{{userInfo.nickName}}" value="时间" class="van_cell" border="{{ false }}" center />
-
-
-
+        <van-cell class="van_cell" icon="{{userInfo.avatarUrl}}" title="{{userInfo.nickName}}" value="{{time.timesFun(item.posttime)}}"  border="{{ false }}" center />
     </view>
 
     <!-- 博客内容:文字和图片 -->
@@ -20,8 +19,17 @@
       <view class="text">{{item.content}}</view>
       <view class="picture">
         <van-grid column-num="3" border="{{ false }}">
-          <van-grid-item use-slot wx:for="{{item.picarr}}" wx:for-item="picitem" wx:for-index="picindex">
-            <image style="width: 100%; height: 90px;" src="{{picitem}}" />
+          <van-grid-item 
+          use-slot
+          wx:key="*this"
+          wx:for="{{item.picarr}}" 
+          wx:for-item="picitem" 
+          wx:for-index="picindex"
+          data-picarr="{{item.picarr}}"
+          data-picindex="{{picindex}}"
+          bindtap="clickImg"
+          >
+            <van-image src="{{picitem}}" fit="cover" />
           </van-grid-item>
         </van-grid>
       </view>

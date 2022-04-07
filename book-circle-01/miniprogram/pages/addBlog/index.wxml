@@ -2,9 +2,11 @@
 
   <form bindsubmit="onSubmit">
     <view class="row">
-      <textarea bindinput="" type="textarea" name="content" class="content" placeholder="请输入发表内容" ></textarea>
+
+      <textarea class="content" bindinput="inputContent" type="textarea" name="content" class="content" placeholder="请输入发表内容" ></textarea>
     </view>
+    <!-- 上传图片 -->
     <van-uploader class="van-uploader" file-list="{{ fileList }}" bind:after-read="readPic" bind:delete="delPic" max-count="9" multiple />
-    <van-button type="primary" form-type="submit" block>提交</van-button>
+    <van-button type="primary" form-type="submit" disabled="{{!blogObj.content}}" block>提交</van-button>
   </form>
 </view>
