@@ -11,7 +11,7 @@
 
     <!-- 博客顶部:用户头像,昵称,地址,手机型号 -->
     <view class="blogTop">
-        <van-cell class="van_cell" icon="{{item.userInfo?item.userInfo.avatarUrl:'../../images/icon_girl.png'}}" title="{{item.userInfo?item.userInfo.nickName:'匿名'}}" value="《书名》"  border="{{ false }}" center />
+        <van-cell class="van_cell" icon="{{item.userInfo?item.userInfo.avatarUrl:'../../images/icon_girl.png'}}" title="{{item.userInfo?item.userInfo.nickName:'匿名'}}" value="{{time.timesFun(item.posttime)}}"  border="{{ false }}" center />
     </view>
 
     <!-- 博客内容:文字和图片 -->
@@ -42,12 +42,12 @@
     <!-- 博客底部:发布时间,点赞,评论 -->
     <view class="blogBottom" slot="footer">
       <!-- 时间 -->
-      <view class="time" left>{{time.timesFun(item.posttime)}}</view>
+      <!-- <view class="time" left>{{time.timesFun(item.posttime)}}</view> -->
       <!-- 点赞和评论 -->
-      <view>
         <van-button size="small" type="danger" icon="good-job-o" plain class="clickLike" bindtap="clickLike">点赞</van-button>
         <van-button size="small" type="primary" icon="chat-o" plain class="clickComment" bindtap="clickComment">评论</van-button>
-      </view>
+        <van-button size="small" type="info" icon="bookmark-o" plain class="clickComment" bindtap="clickCollect">收藏</van-button>
+        <van-button size="small" type="warning" icon="share-o" plain class="clickComment" bindtap="clickCollect">分享</van-button>
     </view>
 
   </van-panel>
