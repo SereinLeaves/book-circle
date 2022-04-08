@@ -9,8 +9,13 @@ const db = cloud.database()
 
 // 云函数入口函数
 exports.main = async (event, context) => {
-    const openid = cloud.getWXContext().OPENID
-    var size = event.size ? event.size : 0 ;
-    return await db.collection("blog_list").orderBy("posttime","desc").limit(4).skip(size).get();
     
+    const openid = cloud.getWXContext().OPENID;
+    var {blogObj} = event;
+    blogObj.openid = openid;
+    blogObj.posttime = Date.now();
+    return await db.collection("blog_list").add({
+        data:blogObj
+    })
+
 }

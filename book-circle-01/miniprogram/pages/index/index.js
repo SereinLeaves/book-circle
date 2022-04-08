@@ -7,8 +7,8 @@ Page({
    */
   data: {
     userInfo: {},
-    isPic:true,
-    blogList:[]
+    isPic: true,
+    blogList: []
   },
 
 
@@ -41,27 +41,32 @@ Page({
     wx.cloud.callFunction({
       name: "getAllBlog",
       data: {
-        size:size
+        size: size
       }
     }).then(res => {
       var oldList = this.data.blogList;
       var newList = oldList.concat(res.result.data)
       this.setData({
-        blogList:newList 
+        blogList: newList,
       })
     })
     wx.stopPullDownRefresh()
   },
 
   //点击查看大图
-  clickImg(e){
-    var {picarr,picindex} = e.currentTarget.dataset
+  clickImg(e) {
+    var {
+      picarr,
+      picindex
+    } = e.currentTarget.dataset
     wx.previewImage({
       urls: picarr,
-      current:picarr[picindex]
+      current: picarr[picindex]
     })
 
   },
+
+
 
   /**
    * 生命周期函数--监听页面加载
@@ -72,10 +77,9 @@ Page({
       this.setData({
         userInfo: app.globalData.userInfo
       })
-    }    
+    }
+    console.log(this.blog_id);
   },
-
-
 
 
   /**
@@ -90,7 +94,7 @@ Page({
    */
   onShow: function () {
     this.setData({
-      blogList:[]
+      blogList: []
     })
     this.getBlogData(0)
   },
@@ -114,7 +118,7 @@ Page({
    */
   onPullDownRefresh: function () {
     this.setData({
-      blogList:[]
+      blogList: []
     })
     this.getBlogData(0)
   },
@@ -134,12 +138,32 @@ Page({
 
   },
 
-  //长按事件
-  bindlongpress(){
-    console.log("长按");
+
+//用户删除已发布的内容
+  delContent(e) {
+    wx.showModal({
+      title: '警告',
+      content: '确定要删除?删除后不可恢复!',
+      success(res) {
+        if (res.confirm) {
+          var blog_id = e.currentTarget.dataset.id;
+          wx.cloud.database().collection('blog_list')
+            .doc(blog_id)
+            .remove()
+            .then(res => {
+              console.log("删除成功");
+            })
+            wx.reLaunch({
+              url: '../index/index'
+            })
+        } else if (res.cancel) {
+          console.log('取消删除')
+        }
+      }
+    })
+
+
+
   },
-  jumpContentPage(){
-    console.log("点击");
-  }
 
 })

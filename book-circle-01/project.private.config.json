@@ -78,6 +78,13 @@
                     "name": "text",
                     "pathName": "pages/text/text",
                     "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/tab/tab",
+                    "query": "",
                     "scene": null,
                     "launchMode": "default"
                 }

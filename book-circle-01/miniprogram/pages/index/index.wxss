@@ -27,6 +27,18 @@
     height:230rpx;
 }
 
+.delContent{
+    color: blue;
+    font-size: 31rpx;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20rpx;
+    margin-bottom: 20rpx;
+    
+}
+
+
+
 .blogBottom{
     display: flex;
     justify-content: space-between;

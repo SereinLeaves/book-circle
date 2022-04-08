@@ -76,13 +76,10 @@ Page({
 
   //上传数据到数据库
   onSubmit(e) {
-
     wx.showLoading({
       title: '发布中...',
       mask: true
     })
-
-
     this.setData({
       "blogObj.content": e.detail.value.content,
       "blogObj.userInfo":app.globalData.userInfo
