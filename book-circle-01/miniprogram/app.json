@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/addBlog/index",
-    "pages/my/index"
+    "pages/my/index",
+    "pages/text/text"
   ],
   "window": {
     "backgroundColor": "#ffffff",
@@ -26,23 +27,25 @@
     "van-tabbar-item": "@vant/weapp/tabbar-item/index",
     "van-image": "@vant/weapp/image/index",
     "van-nav-bar": "@vant/weapp/nav-bar/index",
-    "van-field": "@vant/weapp/field/index"
-
+    "van-field": "@vant/weapp/field/index",
+    "van-divider": "@vant/weapp/divider/index",
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index"
   },
   "tabBar": {
     "list": [
       {
-      "pagePath": "pages/index/index",
-      "text": "首页",
-      "iconPath": "images/home.png",
-      "selectedIconPath": "images/home_o.png"
-    },
-    {
-      "pagePath": "pages/my/index",
-      "text": "我的",
-      "iconPath": "images/my.png",
-      "selectedIconPath": "images/my_o.png"
-    }
-  ]
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home_o.png"
+      },
+      {
+        "pagePath": "pages/my/index",
+        "text": "我的",
+        "iconPath": "images/my.png",
+        "selectedIconPath": "images/my_o.png"
+      }
+    ]
   }
 }

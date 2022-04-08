@@ -16,8 +16,7 @@
 }
 
 .blogContent .text{
-    padding-top:15rpx;
-    padding-left:30rpx;
+    padding:30rpx;
     font-size: 35rpx;
     line-height: 1.4em;
 }

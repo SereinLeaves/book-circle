@@ -1,8 +1,14 @@
-<view class="userOut" wx:if="{{!userInfo.nickName}}" bindtap="goLogin">
-    <van-cell icon="../../images/my_o.png" title="请登录" center />
-    <view>{{userInfo.nickName}}</view>
+<view class="out" style="color: #ffffff;">
+    <view class="userOut" wx:if="{{userInfo.nickName}}">
+    <van-cell icon="{{userInfo.avatarUrl}}" title="{{userInfo.nickName}}" center/>
 </view>
 
 <view class="userOut" wx:else>
-    <van-cell icon="{{userInfo.avatarUrl}}" title="{{userInfo.nickName}}" center />
+    <van-cell icon="cloud://cloud1-8g213gzz7833476d.636c-cloud1-8g213gzz7833476d-1310375165/icons/icon_girl.png" title="点击登录" center bindtap="goLogin" />
 </view>
+
+<van-divider />
+
+</view>
+
+

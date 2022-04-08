@@ -1,6 +1,8 @@
 // pages/addBlog/index.js
 import common from "../../common/common.js"
+import index from "../index/index"
 var fileIDArr = [];
+const app=getApp();
 
 
 Page({

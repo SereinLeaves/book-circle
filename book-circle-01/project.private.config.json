@@ -71,6 +71,13 @@
                     "name": "addblog",
                     "pathName": "pages/addBlog/index",
                     "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "text",
+                    "pathName": "pages/text/text",
+                    "query": "",
                     "scene": null,
                     "launchMode": "default"
                 }
