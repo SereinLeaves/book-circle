@@ -4,10 +4,17 @@
 </view>
 
 <view class="userOut" wx:else>
-    <van-cell icon="cloud://cloud1-8g213gzz7833476d.636c-cloud1-8g213gzz7833476d-1310375165/icons/icon_girl.png" title="点击登录" center bindtap="goLogin" />
+    <van-cell icon="friends" title="点击登录" center bindtap="goLogin" />
 </view>
 
 <van-divider />
+
+<van-cell-group>
+  <van-cell title="我的帖子" icon="column"/>
+  <van-cell title="我的收藏" icon="bookmark"/>
+  <van-cell title="我的通知" icon="bell"/>
+</van-cell-group>
+
 
 </view>
 

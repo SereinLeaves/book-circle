@@ -1,2 +1,6 @@
 <!--pages/text/text.wxml-->
 <text>pages/text/text.wxml</text>
+<button bindtap="search">查询</button>
+<button bindtap="add">添加</button>
+<button bindtap="del">删除</button>
+<button bindtap="request">请求</button>

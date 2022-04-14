@@ -1,0 +1,11 @@
+/* pages/circle/circle.wxss */
+
+.text{
+    font-size: 35rpx;
+    padding-bottom: 20rpx;
+    padding-left: 20rpx;
+}
+
+.cellGroup{
+    margin-top: 30rpx;
+}

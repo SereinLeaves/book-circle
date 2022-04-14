@@ -13,6 +13,8 @@ exports.main = async (event, context) => {
     var {blogObj} = event;
     blogObj.openid = openid;
     blogObj.posttime = Date.now();
+    // blogObj.bookName = bookName;
+    console.log(event);
     return await db.collection("blog_list").add({
         data:blogObj
     })

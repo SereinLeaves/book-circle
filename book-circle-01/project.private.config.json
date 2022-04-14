@@ -85,6 +85,27 @@
                     "name": "",
                     "pathName": "pages/tab/tab",
                     "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "圈子",
+                    "pathName": "pages/circle/circle",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "侧边导航",
+                    "pathName": "pages/sidebar/sidebar",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "blogCircle",
+                    "pathName": "pages/blogCircle/blogCircle",
+                    "query": "",
                     "scene": null,
                     "launchMode": "default"
                 }

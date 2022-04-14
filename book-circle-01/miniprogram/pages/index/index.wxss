@@ -1,9 +1,8 @@
-
-.out .van-panel{
+.out .van-panel {
     margin-bottom: 30rpx;
 }
 
-.addBlog{
+.addBlog {
     position: fixed;
     right: 50rpx;
     bottom: 100rpx;
@@ -11,43 +10,57 @@
 }
 
 
-.blogTop .van-cell{
-    --cell-icon-size:90rpx
+.blogTop .van-cell {
+    --cell-icon-size: 90rpx
 }
 
-.blogContent .text{
-    padding:30rpx;
+.blogContent .text {
+    padding: 30rpx;
     font-size: 35rpx;
     line-height: 1.4em;
 }
 
 
-.blogContent image{
-    width:230rpx;
-    height:230rpx;
+.blogContent image {
+    width: 230rpx;
+    height: 230rpx;
 }
 
-.delContent{
+.contentBottom {
+    display: flex;
+    justify-content: space-between;
+}
+
+.circle {
+    font-size: 31rpx;
+    color: green;
+    margin-left: 5rpx;
+
+}
+
+.delContent {
     color: blue;
     font-size: 31rpx;
     display: flex;
     justify-content: flex-end;
     margin-right: 20rpx;
     margin-bottom: 20rpx;
-    
+
 }
 
 
 
-.blogBottom{
+.blogBottom {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
- .blogBottom .time{
+
+.blogBottom .time {
     font-size: 30rpx;
     color: #666666;
- }
- .blogBottom .van-button{
-     margin-left: 10rpx;
- }
+}
+
+.blogBottom .van-button {
+    margin-left: 10rpx;
+}

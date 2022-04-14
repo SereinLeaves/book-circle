@@ -1,4 +1,5 @@
 const app = getApp()
+const db = wx.cloud.database().collection("blog_list")
 
 Page({
 
@@ -8,63 +9,11 @@ Page({
   data: {
     userInfo: {},
     isPic: true,
-    blogList: []
+    blogList: [],
+    bookname:"",
+    list:[]
   },
 
-
-  //授权
-  async goLogin() {
-    await app.getUserInfo()
-    this.setData({
-      userInfo: app.globalData.userInfo
-    })
-  },
-
-  //跳转
-  jumpPages() {
-    wx.navigateTo({
-      url: '../addBlog/index'
-    })
-  },
-  //添加blog
-  async addBlog() {
-    if (app.hasUserInfo()) {
-      this.jumpPages()
-    } else {
-      await this.goLogin()
-      this.jumpPages()
-    }
-  },
-
-  //获取blog数据
-  getBlogData(size) {
-    wx.cloud.callFunction({
-      name: "getAllBlog",
-      data: {
-        size: size
-      }
-    }).then(res => {
-      var oldList = this.data.blogList;
-      var newList = oldList.concat(res.result.data)
-      this.setData({
-        blogList: newList,
-      })
-    })
-    wx.stopPullDownRefresh()
-  },
-
-  //点击查看大图
-  clickImg(e) {
-    var {
-      picarr,
-      picindex
-    } = e.currentTarget.dataset
-    wx.previewImage({
-      urls: picarr,
-      current: picarr[picindex]
-    })
-
-  },
 
 
 
@@ -139,6 +88,62 @@ Page({
   },
 
 
+  //授权
+  async goLogin() {
+    await app.getUserInfo()
+    this.setData({
+      userInfo: app.globalData.userInfo
+    })
+  },
+
+  //跳转
+  jumpPages() {
+    wx.navigateTo({
+      url: '../addBlog/index'
+    })
+  },
+  
+  //添加blog
+  async addBlog() {
+    if (app.hasUserInfo()) {
+      this.jumpPages()
+    } else {
+      await this.goLogin()
+      this.jumpPages()
+    }
+  },
+
+  //获取blog数据
+  getBlogData(size) {
+    wx.cloud.callFunction({
+      name: "getAllBlog",
+      data: {
+        size: size
+      }
+    }).then(res => {
+      var oldList = this.data.blogList;
+      var newList = oldList.concat(res.result.data)
+      this.setData({
+        blogList: newList,
+      })
+    })
+    wx.stopPullDownRefresh()
+  },
+
+  //点击查看大图
+  clickImg(e) {
+    var {
+      picarr,
+      picindex
+    } = e.currentTarget.dataset
+    wx.previewImage({
+      urls: picarr,
+      current: picarr[picindex]
+    })
+
+  },
+
+
 //用户删除已发布的内容
   delContent(e) {
     wx.showModal({
@@ -160,6 +165,24 @@ Page({
           console.log('取消删除')
         }
       }
+    })
+  },
+
+  async enterCircle(e){
+    // console.log(e);
+    var id = e.currentTarget.dataset.id
+    await db.where({
+      _id:id
+    })
+    .get()
+    .then(res=>{
+      this.setData({
+        bookname:res.data[0].bookName
+      })
+    app.globalData.bookName = res.data[0].bookName
+    })
+    wx.navigateTo({
+      url: '../blogCircle/blogCircle'
     })
   },
 

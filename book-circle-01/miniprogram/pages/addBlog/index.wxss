@@ -18,3 +18,7 @@
     height: 300rpx;
     color: #333;
 }
+
+.chooseCircle{
+    height: 50rpx;
+}

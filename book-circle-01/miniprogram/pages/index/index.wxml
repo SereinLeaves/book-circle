@@ -3,47 +3,54 @@
 <view class="out">
   <!-- AddBlog:点击授权,并且跳转到添加博客页面,固定在页面上 -->
   <view class="addBlog" bindtap="addBlog">
-    <van-button icon="plus" type="primary" size="normal" round/>
+    <van-button icon="plus" type="primary" size="normal" round />
   </view>
 
-<!-- 内容面板 -->
-  <van-panel wx:for="{{blogList}}" wx:key="item._id">
+  <!-- 内容面板 -->
+  <van-panel wx:for="{{blogList}}" wx:key="item._id" >
 
     <!-- 博客顶部:用户头像,昵称,地址,手机型号 -->
     <view class="blogTop">
-        <van-cell 
-        class="van_cell" 
-        icon="{{item.userInfo?item.userInfo.avatarUrl:'../../images/icon_girl.png'}}" title="{{item.userInfo?item.userInfo.nickName:'匿名'}}" 
-        value="{{time.timesFun(item.posttime)}}"  border="{{ false }}" 
-        center />
+      <van-cell class="van_cell" icon="{{item.userInfo?item.userInfo.avatarUrl:'../../images/icon_girl.png'}}" title="{{item.userInfo?item.userInfo.nickName:'匿名'}}" value="{{time.timesFun(item.posttime)}}" border="{{ false }}" center />
     </view>
 
     <!-- 博客内容:文字和图片 -->
     <view class="blogContent">
       <view class="text">
-      <text	user-select="true">
-        {{item.content}}
-      </text>
+        <text user-select="true">
+          {{item.content}}
+        </text>
       </view>
       <view class="picture">
         <van-grid column-num="3" border="{{false}}">
-          <van-grid-item 
-          use-slot
-          wx:key="*this"
-          wx:for="{{item.picarr}}" 
-          wx:for-item="picitem" 
-          wx:for-index="picindex"
-          data-picarr="{{item.picarr}}"
-          data-picindex="{{picindex}}"
-          bindtap="clickImg"
-          >
+          <van-grid-item use-slot wx:key="*this" wx:for="{{item.picarr}}" wx:for-item="picitem" wx:for-index="picindex" data-picarr="{{item.picarr}}" data-picindex="{{picindex}}" bindtap="clickImg">
             <van-image src="{{picitem}}" fit="cover" />
           </van-grid-item>
         </van-grid>
       </view>
 
-      <view class="delContent" bindtap="delContent" wx:if="{{item.userInfo.nickName==userInfo.nickName}}" data-id="{{item._id}}">
-        删除
+      <!-- 内容底部 -->
+      <view class="contentBottom" bindtap="enterCircle" data-id="{{item._id}}" >
+        <!-- 圈子 -->
+        <!-- 有标签就按标签来,没有标签就设置成分享生活 -->
+        <view class="circle" >
+
+          <view wx:if="{{item.bookName}}" data-id="{{item._id}}">
+            <van-icon name="star-o" />
+            {{item.bookName}}
+          </view>
+
+           <view wx:else>
+            <van-icon name="star-o" />
+           分享生活
+          </view>
+
+        </view>
+
+        <!-- 删除 -->
+        <view class="delContent" bindtap="delContent" wx:if="{{item.userInfo.nickName==userInfo.nickName}}" data-id="{{item._id}}">
+          删除
+        </view>
       </view>
 
     </view>
@@ -51,10 +58,10 @@
     <!-- 博客底部:发布时间,点赞,评论 -->
     <view class="blogBottom" slot="footer">
       <!-- 点赞和评论 -->
-        <van-button size="small" type="danger" icon="like-o" plain class="clickLike" bindtap="clickLike">喜欢</van-button>
-        <van-button size="small" type="primary" icon="chat-o" plain class="clickComment" bindtap="clickComment">评论</van-button>
-        <van-button size="small" type="info" icon="bookmark-o" plain class="clickComment" bindtap="clickCollect">收藏</van-button>
-        <van-button size="small" type="warning" icon="share-o" plain class="clickComment" bindtap="clickCollect">分享</van-button>
+      <van-button size="small" type="danger" icon="like-o" plain class="clickLike" bindtap="clickLike">喜欢</van-button>
+      <van-button size="small" type="primary" icon="chat-o" plain class="clickComment" bindtap="clickComment">评论</van-button>
+      <van-button size="small" type="info" icon="bookmark-o" plain class="clickComment" bindtap="clickCollect">收藏</van-button>
+      <van-button size="small" type="warning" icon="share-o" plain class="clickComment" bindtap="clickCollect">分享</van-button>
     </view>
 
   </van-panel>

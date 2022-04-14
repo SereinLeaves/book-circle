@@ -1,4 +1,4 @@
-// pages/tab/tab.js
+// pages/searchPage/searchPage.js
 Page({
 
     /**

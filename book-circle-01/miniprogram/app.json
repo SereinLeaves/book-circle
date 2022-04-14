@@ -4,7 +4,11 @@
     "pages/addBlog/index",
     "pages/my/index",
     "pages/text/text",
-    "pages/tab/tab"
+    "pages/circle/circle",
+    "pages/blogCircle/blogCircle",
+    "pages/sidebar/sidebar",
+    "pages/searchPage/searchPage"
+
   ],
   "window": {
     "backgroundColor": "#ffffff",
@@ -31,7 +35,15 @@
     "van-field": "@vant/weapp/field/index",
     "van-divider": "@vant/weapp/divider/index",
     "van-tab": "@vant/weapp/tab/index",
-    "van-tabs": "@vant/weapp/tabs/index"
+    "van-tabs": "@vant/weapp/tabs/index",
+    "van-tag": "@vant/weapp/tag/index",
+    "van-search": "@vant/weapp/search/index",
+    "van-sidebar": "@vant/weapp/sidebar/index",
+    "van-sidebar-item": "@vant/weapp/sidebar-item/index",
+    "van-tree-select": "@vant/weapp/tree-select/index",
+    "van-index-bar": "@vant/weapp/index-bar/index",
+  "van-index-anchor": "@vant/weapp/index-anchor/index",
+  "van-popup": "@vant/weapp/popup/index"
   },
   "tabBar": {
     "list": [
@@ -40,6 +52,12 @@
         "text": "首页",
         "iconPath": "images/home.png",
         "selectedIconPath": "images/home_o.png"
+      },
+      {
+        "pagePath": "pages/circle/circle",
+        "text": "圈子",
+        "iconPath": "images/circle.png",
+        "selectedIconPath": "images/circle_o.png"
       },
       {
         "pagePath": "pages/my/index",

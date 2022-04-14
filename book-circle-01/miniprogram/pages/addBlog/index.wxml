@@ -2,9 +2,17 @@
 
   <form bindsubmit="onSubmit">
     <view class="row">
-
       <textarea class="content" bindinput="inputContent" type="textarea" name="content" class="content" placeholder="请输入发表内容" ></textarea>
     </view>
+
+    <!-- 选择圈子 -->
+    <view wx:if="{{bookName}}">
+      <van-cell title="{{bookName}}" is-link bindtap="circle" />
+    </view>
+    <view wx:else>
+      <van-cell title="请选择书友圈" is-link bindtap="circle" />
+    </view>
+
     <!-- 上传图片 -->
     <van-uploader class="van-uploader" file-list="{{ fileList }}" bind:after-read="readPic" bind:delete="delPic" max-count="9" multiple />
     <van-button type="primary" form-type="submit" disabled="{{!blogObj.content}}" block>提交</van-button>

@@ -3,6 +3,7 @@ import common from "../../common/common.js"
 import index from "../index/index"
 var fileIDArr = [];
 const app=getApp();
+const db = wx.cloud.database().collection("blog_list")
 
 
 Page({
@@ -13,7 +14,9 @@ Page({
   data: {
     value:"",
     fileList: [],
-    blogObj: {}
+    blogObj: {},
+    show: false,
+    bookName:""
   },
 
 
@@ -35,7 +38,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.setData({
+      bookName:wx.getStorageSync('bookname')
+    })
+    wx.clearStorageSync()
+    console.log("页面显示");
   },
 
   /**
@@ -82,8 +89,10 @@ Page({
     })
     this.setData({
       "blogObj.content": e.detail.value.content,
-      "blogObj.userInfo":app.globalData.userInfo
+      "blogObj.userInfo":app.globalData.userInfo,
+      "blogObj.bookName":this.__data__.bookName
     })
+    // console.log(this.__data__.bookName);
 
     //没有图片就直接上传
     if (this.data.fileList.length == 0) {
@@ -137,6 +146,7 @@ Page({
 
   //上传到数据库
   pushDatabase() {
+
     //调用云函数addBlog,添加到数据库
     wx.cloud.callFunction({
       name: "addBlog",
@@ -163,6 +173,13 @@ Page({
       "blogObj.content":val.detail.value
     })
   },
+
+   circle(){
+    wx.navigateTo({
+      url: '../sidebar/sidebar'
+    })
+    
+  }
 
 
 

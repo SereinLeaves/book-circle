@@ -1,0 +1,18 @@
+<view class="out">
+    <van-search 
+    value="{{ value }}" 
+    placeholder="请输入搜索关键词" 
+    input-align="center"
+    bind:search="onSearch"
+    />
+
+    <van-divider />
+    <view class="text">我加入的圈子</view>
+    <van-cell-group class="cellGroup">
+        <van-cell title="分享生活" />
+        <van-cell title="红楼梦" />
+        <van-cell title="西游记" />
+        <van-cell title="水浒传" />
+        <van-cell title="三国演义" />
+    </van-cell-group>
+</view>

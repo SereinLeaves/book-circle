@@ -2,6 +2,10 @@
 var that = this;
 
 App({
+  globalData:{
+    userInfo:null,
+    bookName:""
+  },
     
   onLaunch: function () {
     if (!wx.cloud) {
@@ -45,6 +49,7 @@ App({
     })
 
     this.globalData.userInfo = p.userInfo
+    // app.globalData.userInfo= {name: 'Tom', age: 23};
     wx.setStorageSync('userInfo', p.userInfo)
 
   },
