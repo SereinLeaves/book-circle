@@ -1,4 +1,5 @@
 // pages/circle/circle.js
+const app = getApp()
 const db = wx.cloud.database().collection("blog_list")
 Page({
 
@@ -6,8 +7,8 @@ Page({
      * 页面的初始数据
      */
     data: {
-        value:"",
-        blogList:[]
+        value: "",
+        blogList: []
     },
 
     /**
@@ -66,25 +67,54 @@ Page({
 
     },
 
-    onSearch(e) {
-        
+    // 搜索框
+    onChange(e) {
         this.setData({
-            value:e.detail
-        })
-        db.where({
-            bookName:e.detail
-        }).get().then(res=>{
-            console.log("返回的数据",res);
-            this.setData({
-                blogList:res.data
-            })
-        })
-        console.log(e.detail);
+            value: e.detail,
+        });
+    },
+    onSearch() {
+        app.globalData.bookName = this.data.value;
         wx.navigateTo({
-          url: '../searchPage/searchPage'
+          url: '../blogCircle/blogCircle'
         })
     },
 
+    // 点击进入圈子
+    shareLife(){
+        app.globalData.bookName="分享生活"
+        wx.navigateTo({
+            url: '../blogCircle/blogCircle'
+          })
+    },
+
+    hongLou(){
+        app.globalData.bookName="红楼梦"
+        wx.navigateTo({
+            url: '../blogCircle/blogCircle'
+          })
+    },
+
+    xiYou(){
+        app.globalData.bookName="西游记"
+        wx.navigateTo({
+            url: '../blogCircle/blogCircle'
+          })
+    },
+
+    shuiHu(){
+        app.globalData.bookName="水浒传"
+        wx.navigateTo({
+            url: '../blogCircle/blogCircle'
+          })
+    },
+
+    sanGuo(){
+        app.globalData.bookName="三国演义"
+        wx.navigateTo({
+            url: '../blogCircle/blogCircle'
+          })
+    },
 
 
 

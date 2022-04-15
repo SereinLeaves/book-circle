@@ -7,13 +7,15 @@ Page({
      * 页面的初始数据
      */
     data: {
-        bookName:""
+        bookName: ""
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+
+        // console.log(data);
 
     },
 
@@ -66,37 +68,36 @@ Page({
 
     },
 
-    shareLife(){
+    shareLife() {
         bookname = "分享生活"
-        wx.setStorageSync('bookname', bookname)
+        app.globalData.bookName = "分享生活"
         wx.navigateBack()
     },
 
     HongLou(e) {
-        bookname = "红楼梦"
-        wx.setStorageSync('bookname', bookname)
+        app.globalData.bookName = "红楼梦"
         wx.navigateBack()
     },
 
     XiYou(e) {
         bookname = "西游记"
-        wx.setStorageSync('bookname', bookname)
+        app.globalData.bookName = "西游记"
         wx.navigateBack()
     },
 
     ShuiHu(e) {
         bookname = "水浒传"
-        wx.setStorageSync('bookname', bookname)
+        app.globalData.bookName = "水浒传"
         wx.navigateBack()
     },
 
     SanGuo(e) {
         bookname = "三国演义"
-        wx.setStorageSync('bookname', bookname)
+        app.globalData.bookName = "三国演义"
         wx.navigateBack()
-    }
+    },
 
-
+    
 
 
 

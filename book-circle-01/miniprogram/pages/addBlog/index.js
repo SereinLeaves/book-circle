@@ -1,8 +1,7 @@
 // pages/addBlog/index.js
 import common from "../../common/common.js"
-import index from "../index/index"
 var fileIDArr = [];
-const app=getApp();
+const app = getApp();
 const db = wx.cloud.database().collection("blog_list")
 
 
@@ -12,11 +11,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    value:"",
+    value: "",
     fileList: [],
     blogObj: {},
     show: false,
-    bookName:""
+    bookName: ""
   },
 
 
@@ -39,10 +38,10 @@ Page({
    */
   onShow: function () {
     this.setData({
-      bookName:wx.getStorageSync('bookname')
+      // bookName:wx.getStorageSync('bookname')
+      bookName:app.globalData.bookName
     })
-    wx.clearStorageSync()
-    console.log("页面显示");
+    // wx.clearStorageSync()
   },
 
   /**
@@ -89,10 +88,9 @@ Page({
     })
     this.setData({
       "blogObj.content": e.detail.value.content,
-      "blogObj.userInfo":app.globalData.userInfo,
-      "blogObj.bookName":this.__data__.bookName
+      "blogObj.userInfo": app.globalData.userInfo,
+      "blogObj.bookName": this.__data__.bookName
     })
-    // console.log(this.__data__.bookName);
 
     //没有图片就直接上传
     if (this.data.fileList.length == 0) {
@@ -158,7 +156,7 @@ Page({
       wx.hideLoading()
       wx.showToast({
         title: '发布成功',
-        mask:true
+        mask: true
       })
     })
     setTimeout(() => {
@@ -167,21 +165,20 @@ Page({
       })
     }, 1500)
   },
-
-  inputContent(val){
+  // 输入内容
+  inputContent(val) {
     this.setData({
-      "blogObj.content":val.detail.value
+      "blogObj.content": val.detail.value
     })
   },
 
-   circle(){
+  // 选择圈子
+  circle() {
     wx.navigateTo({
       url: '../sidebar/sidebar'
     })
     
   }
-
-
 
 
 })

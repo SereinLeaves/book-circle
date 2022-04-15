@@ -1,7 +1,13 @@
-<van-cell-group bindtap="onClickItem" >
-    <van-cell title="分享生活" bindtap="shareLife" clickable/>
-    <van-cell title="红楼梦" bindtap="HongLou" clickable/>
-    <van-cell title="西游记" bindtap="XiYou" clickable/>
-    <van-cell title="水浒传" bindtap="ShuiHu" clickable/>
-    <van-cell title="三国演义" bindtap="SanGuo" clickable/>
+<van-cell-group bind:click="onClickItem">
+    <van-cell title="分享生活" bind:click="shareLife" clickable/>
+    <van-cell title="红楼梦" bind:click="HongLou" clickable/>
+    <van-cell title="西游记" bind:click="XiYou" clickable/>
+    <van-cell title="水浒传" bind:click="ShuiHu" clickable/>
+    <van-cell title="三国演义" bind:click="SanGuo" clickable/>
+
+    <!-- <van-cell title="分享生活" bindtap="shareLife"  clickable/>
+    <van-cell title="红楼梦" bindtap="HongLou"  clickable/>
+    <van-cell title="西游记" bindtap="XiYou"  clickable/>
+    <van-cell title="水浒传" bindtap="ShuiHu"  clickable/>
+    <van-cell title="三国演义" bindtap="SanGuo"  clickable/> -->
 </van-cell-group>
