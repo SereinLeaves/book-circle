@@ -15,7 +15,8 @@ Page({
     fileList: [],
     blogObj: {},
     show: false,
-    bookName: ""
+    bookName: "",
+    like:[]
   },
 
 
@@ -89,8 +90,10 @@ Page({
     this.setData({
       "blogObj.content": e.detail.value.content,
       "blogObj.userInfo": app.globalData.userInfo,
-      "blogObj.bookName": this.__data__.bookName
+      "blogObj.bookName": this.__data__.bookName,
+      // "blogObj.like": this.__data__.like[0],
     })
+    console.log(this);
 
     //没有图片就直接上传
     if (this.data.fileList.length == 0) {

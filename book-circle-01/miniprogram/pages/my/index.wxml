@@ -10,9 +10,9 @@
 <van-divider />
 
 <van-cell-group>
-  <van-cell title="我的帖子" icon="column"/>
-  <van-cell title="我的收藏" icon="bookmark"/>
-  <van-cell title="我的通知" icon="bell"/>
+  <!-- <van-cell title="我的帖子" icon="column"/> -->
+  <!-- <van-cell title="我的收藏" icon="bookmark"/>
+  <van-cell title="我的通知" icon="bell"/> -->
 </van-cell-group>
 
 

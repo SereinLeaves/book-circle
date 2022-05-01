@@ -1,5 +1,8 @@
 const app = getApp()
 const db = wx.cloud.database().collection("blog_list")
+const command = wx.cloud.database().command
+// const openid = wx.cloud.getWXcontext().OPENID
+const openid = wx.cloud.get
 
 Page({
 
@@ -9,9 +12,9 @@ Page({
   data: {
     userInfo: {},
     isPic: true,
-    blogList: [],
+    da: [],
     bookname:"",
-    list:[]
+    list:[],
   },
 
 
@@ -27,7 +30,7 @@ Page({
         userInfo: app.globalData.userInfo
       })
     }
-    console.log(this.blog_id);
+    // console.log(this.blog_id);
   },
 
 
@@ -168,9 +171,10 @@ Page({
     })
   },
 
+  //进入圈子
   async enterCircle(e){
-    // console.log(e);
-    var id = e.currentTarget.dataset.id
+   var id = e.currentTarget.dataset.id
+    console.log(id);
     await db.where({
       _id:id
     })
@@ -185,5 +189,40 @@ Page({
       url: '../blogCircle/blogCircle'
     })
   },
+
+  // 点赞
+  async clickLike(e){
+    
+    // var id = e.currentTarget.dataset.id
+    var {id,index} = e.currentTarget.dataset
+    console.log(id);
+    wx.cloud.callFunction({
+      name:"addLike",
+      data:{
+        _id:id
+      }
+    }).then(res=>{
+      console.log(res);
+    }
+    )
+  },
+
+  // 评论
+  clickComment(){
+
+  },
+
+  // 收藏
+  clickCollect(){
+
+
+  },
+
+  // 分享
+  // clickShare(){
+
+  // },
+
+
 
 })

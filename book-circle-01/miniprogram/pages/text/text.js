@@ -6,7 +6,8 @@ Page({
      * 页面的初始数据
      */
     data: {
-        userInfo: {}
+        userInfo: {},
+        list:[]
     },
 
     /**
@@ -95,15 +96,41 @@ Page({
 
     request(){
         wx.request({
-          url: 'https://i.weread.qq.com/book/info?bookId=',
+          url: 'http://api.douban.com/v2/book/1003078',
+          data: {},
+          header:{
+            "Content-Type":"json"
+        },
+          timeout: 0,
           success: (result) => {
-              console.log(result);
+              console.log("请求成功"+requset);
           },
           fail: (res) => {},
           complete: (res) => {},
         })
-
     },
+
+    
+
+    async clickLike(res){
+    
+        
+        await db.doc("eb85cafe6259133700e108c31bfae810").get().then(
+          res=>{
+            this.setData({
+              list:res.data
+            })
+            console.log("click成功",res.data)
+            console.log("click成功",res)
+          },
+          
+        )
+        // db.doc(id).update({
+        //   data:{
+        //     like:id
+        //   }
+        // })
+      },
 
 
 })

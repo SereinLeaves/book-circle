@@ -46,13 +46,12 @@
     </view>
 
     <!-- 博客底部:发布时间,点赞,评论 -->
-    <view class="blogBottom" slot="footer">
-      <!-- 点赞和评论 -->
+    <!-- <view class="blogBottom" slot="footer">
       <van-button size="small" type="danger" icon="like-o" plain class="clickLike" bindtap="clickLike">喜欢</van-button>
       <van-button size="small" type="primary" icon="chat-o" plain class="clickComment" bindtap="clickComment">评论</van-button>
       <van-button size="small" type="info" icon="bookmark-o" plain class="clickComment" bindtap="clickCollect">收藏</van-button>
       <van-button size="small" type="warning" icon="share-o" plain class="clickComment" bindtap="clickCollect">分享</van-button>
-    </view>
+    </view> -->
 
   </van-panel>
 

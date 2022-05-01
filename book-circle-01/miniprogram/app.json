@@ -6,8 +6,7 @@
     "pages/text/text",
     "pages/circle/circle",
     "pages/blogCircle/blogCircle",
-    "pages/sidebar/sidebar",
-    "pages/searchPage/searchPage"
+    "pages/sidebar/sidebar"
 
   ],
   "window": {
@@ -58,12 +57,6 @@
         "text": "圈子",
         "iconPath": "images/circle.png",
         "selectedIconPath": "images/circle_o.png"
-      },
-      {
-        "pagePath": "pages/my/index",
-        "text": "我的",
-        "iconPath": "images/my.png",
-        "selectedIconPath": "images/my_o.png"
       }
     ]
   }

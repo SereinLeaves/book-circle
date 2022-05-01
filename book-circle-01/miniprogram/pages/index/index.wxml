@@ -7,7 +7,7 @@
   </view>
 
   <!-- 内容面板 -->
-  <van-panel wx:for="{{blogList}}" wx:key="item._id" >
+  <van-panel wx:for="{{blogList}}" wx:key="item._id">
 
     <!-- 博客顶部:用户头像,昵称,地址,手机型号 -->
     <view class="blogTop">
@@ -30,21 +30,21 @@
       </view>
 
       <!-- 内容底部 -->
-      <view class="contentBottom" bindtap="enterCircle" data-id="{{item._id}}" >
+      <view class="contentBottom" bindtap="enterCircle" data-id="{{item._id}}">
         <!-- 圈子 -->
         <!-- 有标签就按标签来,没有标签就设置成分享生活 -->
-        <view class="circle" >
+        <view class="circle">
 
           <view wx:if="{{item.bookName}}" data-id="{{item._id}}">
             <van-icon name="star-o" />
             {{item.bookName}}
           </view>
 
-           <view wx:else>
+          <view wx:else>
             <van-icon name="star-o" />
-           分享生活
+            分享生活
           </view>
-
+          <!-- <view>{{item._id}}</view> -->
         </view>
 
         <!-- 删除 -->
@@ -55,13 +55,24 @@
 
     </view>
 
-    <!-- 博客底部:发布时间,点赞,评论 -->
+    <!-- 博客底部:点赞,评论 -->
     <view class="blogBottom" slot="footer">
-      <!-- 点赞和评论 -->
-      <van-button size="small" type="danger" icon="like-o" plain class="clickLike" bindtap="clickLike">喜欢</van-button>
-      <van-button size="small" type="primary" icon="chat-o" plain class="clickComment" bindtap="clickComment">评论</van-button>
-      <van-button size="small" type="info" icon="bookmark-o" plain class="clickComment" bindtap="clickCollect">收藏</van-button>
-      <van-button size="small" type="warning" icon="share-o" plain class="clickComment" bindtap="clickCollect">分享</van-button>
+
+      <van-button 
+      size="small" 
+      type="danger" 
+      icon="like-o" 
+      plain 
+      class="clickLike" 
+      bindtap="clickLike" 
+      data-id="{{item._id}}"
+      data-index="{{item.index}}"
+      >喜欢</van-button>
+
+      <van-button size="small" type="primary" icon="chat-o" plain class="clickComment" bindtap="clickComment" data-id="{{item._id}}">评论</van-button>
+
+      <van-button size="small" type="info" icon="bookmark-o" plain class="clickCollect" bindtap="clickCollect" data-id="{{item._id}}">收藏</van-button>
+      <!-- <van-button size="small" type="warning" icon="share-o" plain class="clickShare" bindtap="clickShare" data-id="{{item._id}}">分享</van-button> -->
     </view>
 
   </van-panel>
